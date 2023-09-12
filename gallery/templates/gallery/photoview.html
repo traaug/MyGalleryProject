@@ -1,0 +1,22 @@
+{% extends 'gallery/base.html' %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <img src="{{ photo_detail.image_file.url }}" class="card-img-top" alt="{{ photo_detail.title }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ photo_detail.title }}</h5>
+                    <p class="card-text">{{ photo_detail.description }}</p>
+                </div>
+            </div>
+            <a href="{% url 'home' %}" class="btn btn-secondary">Back</a>
+            <a href="{% url 'update_photo' photo_detail.id %}" class="btn btn-primary">Update</a>
+            <a href="{% url 'delete_photo' photo_detail.id %}" class="btn btn-danger">Delete</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
